@@ -1,12 +1,7 @@
 name: Coverage
 
 on:
-  push:
-    branches:
-    - master
-  pull_request:
-    branches:
-    - master
+  workflow_dispatch: 
 
 jobs:
   coverage:
@@ -35,8 +30,8 @@ jobs:
       env:
         CTEST_OUTPUT_ON_FAILURE: 1
       run: cmake --build build-coverage --target ctest_coverage -- -j4
-    - name: "upload"
-      uses: codecov/codecov-action@v1.2.1
-      with:
-        files: build-coverage/ctest_coverage.xml
-        verbose: false
+    # - name: "upload"
+    #   uses: codecov/codecov-action@v1.2.1
+    #   with:
+    #     files: build-coverage/ctest_coverage.xml
+    #     verbose: false
